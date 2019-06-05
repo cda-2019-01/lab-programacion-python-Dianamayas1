@@ -17,3 +17,26 @@
 ## ('9', ['A', 'B', 'C', 'E'])
 ##
 ##
+### Punto 9
+BD = open('data.csv', 'r').readlines()
+BD = [row[0:-1] for row in BD]
+BD = [row.split('\t') for row in BD]
+data = BD
+
+result = {}
+
+for elemt in data:
+	result[elemt[1]] = []
+
+for elemt in data:
+	result[elemt[1]].append(elemt[0])
+
+result2 = {}
+
+for i in sorted(result.items()):
+	aux = set(i[1])
+	aux = list(aux)
+	result2[i[0]] = sorted(aux)
+
+for i in sorted(result2.items()):
+	print(i)
