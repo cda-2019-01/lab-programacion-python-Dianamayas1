@@ -14,3 +14,18 @@
 ## 11,2
 ## 12,3
 ##
+### Punto 4
+BD= open('data.csv', 'r').readlines()
+BD = [row[0:-1] for row in BD]
+BD = [row.split('\t') for row in BD]
+data = BD
+result = {}
+
+for elemt in data:
+	result[(elemt[2].split('-')[1])] = 0
+
+for elemt in data:
+	result[(elemt[2].split('-')[1])] = result[(elemt[2].split('-')[1])] + 1
+
+for key in sorted(result.keys()):  
+     print(key + ',' + str(result[key]))
